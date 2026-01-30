@@ -2,283 +2,245 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LARP Dashboard</title>
+<title>LARP Staff Handbook</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0d1117;
-  color: white;
-}
+body { margin:0; font-family:Arial,sans-serif; background:#0d1117; color:white; }
 
 /* Sidebar */
-.sidebar {
-  width: 220px;
-  height: 100vh;
-  background-color: #161b22;
-  position: fixed;
-  padding: 20px;
-}
-.sidebar h2 { color: #58a6ff; }
-.sidebar a {
-  display: block;
-  color: #c9d1d9;
-  text-decoration: none;
-  margin: 12px 0;
-  cursor: pointer;
-}
-.sidebar a:hover { color: white; }
+.sidebar { width:220px; height:100vh; background:#161b22; position:fixed; padding:20px; }
+.sidebar h2 { color:#58a6ff; }
+.sidebar a { display:block; color:#c9d1d9; text-decoration:none; margin:12px 0; cursor:pointer; }
+.sidebar a:hover { color:white; }
 
-.content { margin-left: 240px; padding: 30px; max-width: 1000px; }
-h1,h2 { color: #58a6ff; }
-
-/* Hero Banner */
-.dashboard-banner {
-  width: 100%;
-  height: 220px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 25px;
-  position: relative;
-}
-.dashboard-banner img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
-.dashboard-banner h1 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #58a6ff;
-  font-size: 32px;
-}
-
-/* Ownership Team */
-.team-cards { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px; }
-.team-card {
-  background-color: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 10px;
-  padding: 15px;
-  width: 180px;
-  text-align: center;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.team-card:hover { background-color: #21262d; border-color: #58a6ff; transform: translateY(-5px); }
-.team-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 2px solid #58a6ff; }
-.team-name { font-size: 18px; font-weight: bold; color: #58a6ff; }
-.team-role { font-size: 14px; color: #c9d1d9; margin-top: 5px; padding: 2px 6px; border-radius: 5px; background-color: #21262d; display: inline-block; }
-
-/* Announcements */
-.announcement-card { display: flex; gap: 15px; background-color: #161b22; padding: 15px; border-radius: 10px; border: 1px solid #30363d; margin-bottom: 10px; align-items: center; cursor: pointer; transition: 0.3s; }
-.announcement-card:hover { background-color: #21262d; border-color: #58a6ff; transform: translateY(-3px); }
-.announcement-img { width: 100px; height: 100px; border-radius: 8px; object-fit: cover; }
-.announcement-text h3 { margin: 0 0 5px 0; color: #58a6ff; }
-.announcement-text p { margin: 0; font-size: 14px; color: #c9d1d9; }
-
-/* Staff Stats */
-.staff-stats { display: flex; gap: 20px; margin-top: 20px; }
-.stat-card { background-color: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px; flex: 1; text-align: center; transition: 0.2s; }
-.stat-card:hover { background-color: #21262d; border-color: #58a6ff; }
-.stat-number { font-size: 24px; font-weight: bold; color: #58a6ff; }
-.stat-label { font-size: 14px; color: #c9d1d9; }
-
-/* Discord Card */
-.discord-card { display: flex; align-items: center; background-color: #7289da; padding: 15px; border-radius: 10px; color: white; font-weight: bold; margin-top: 15px; text-decoration: none; transition: 0.3s; }
-.discord-card:hover { background-color: #5b6eae; transform: translateY(-3px); }
-.discord-card img { width: 40px; height: 40px; margin-right: 10px; border-radius: 50%; }
-
-/* External Links Accordion */
-.external-links { margin-top: 25px; }
-.accordion { background-color: #161b22; color: #c9d1d9; cursor: pointer; padding: 12px; width: 100%; border: none; text-align: left; outline: none; font-size: 16px; transition: 0.3s; border-radius: 5px; margin-bottom: 5px; }
-.accordion:hover { background-color: #21262d; color: #58a6ff; }
-.panel { padding: 0 15px; display: none; background-color: #161b22; overflow: hidden; border-left: 2px solid #58a6ff; border-radius: 0 5px 5px 0; }
-
-/* Staff Livery Cars */
-.livery-list { margin-top: 20px; background-color: #161b22; padding: 15px; border-radius: 10px; border: 1px solid #30363d; }
-.livery-list h3 { margin-top: 0; color: #58a6ff; }
-.livery-list ul { list-style: disc; padding-left: 20px; color: #c9d1d9; }
-.livery-list li { cursor: pointer; transition: 0.2s; }
-.livery-list li:hover { color: #58a6ff; transform: scale(1.05); }
-
-/* Quick Links */
-.quick-links { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; }
-.quick-link { background-color: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 15px 20px; color: #c9d1d9; text-decoration: none; transition: 0.3s; flex: 1 1 150px; text-align: center; }
-.quick-link:hover { background-color: #21262d; border-color: #58a6ff; color: #58a6ff; }
+/* Content */
+.content { margin-left:240px; padding:30px; max-width:1000px; }
+h1,h2 { color:#58a6ff; }
 
 /* Tabs */
-.tab-section { display: none; }
-.tab-section.active { display: block; }
+.tab-section { display:none; }
+.tab-section.active { display:block; }
 
+/* Hero Banner */
+.dashboard-banner { width:100%; height:220px; border-radius:10px; overflow:hidden; margin-bottom:25px; position:relative; }
+.dashboard-banner img { width:100%; height:100%; object-fit:cover; filter:brightness(0.6); }
+.dashboard-banner h1 { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:32px; }
+
+/* Team Cards */
+.team-cards { display:flex; flex-wrap:wrap; gap:20px; margin-top:15px; }
+.team-card { background:#161b22; border:1px solid #30363d; border-radius:10px; padding:15px; width:180px; text-align:center; cursor:pointer; transition:0.3s; }
+.team-card:hover { background:#21262d; border-color:#58a6ff; transform:translateY(-5px); }
+.team-avatar { width:80px; height:80px; border-radius:50%; object-fit:cover; margin-bottom:10px; border:2px solid #58a6ff; }
+.team-name { font-weight:bold; }
+.team-role { font-size:14px; color:#c9d1d9; margin-top:5px; padding:2px 6px; border-radius:5px; background:#21262d; display:inline-block; }
+
+/* Announcements */
+.announcement-card { display:flex; gap:15px; background:#161b22; padding:15px; border-radius:10px; border:1px solid #30363d; margin-bottom:10px; cursor:pointer; transition:0.3s; }
+.announcement-card:hover { background:#21262d; border-color:#58a6ff; transform:translateY(-3px); }
+.announcement-img { width:100px; height:100px; border-radius:8px; object-fit:cover; }
+.announcement-text h3 { margin:0 0 5px 0; color:#58a6ff; }
+.announcement-text p { margin:0; font-size:14px; color:#c9d1d9; }
+
+/* Accordions */
+.accordion { background:#161b22; color:#c9d1d9; cursor:pointer; padding:12px; width:100%; border:none; text-align:left; outline:none; font-size:16px; transition:0.3s; border-radius:5px; margin-bottom:5px; }
+.accordion:hover { background:#21262d; color:#58a6ff; }
+.panel { padding:0 15px; display:none; background:#161b22; overflow:hidden; border-left:2px solid #58a6ff; border-radius:0 5px 5px 0; }
+
+/* Livery */
+.livery-list { margin-top:20px; background:#161b22; padding:15px; border-radius:10px; border:1px solid #30363d; }
+.livery-list h3 { margin-top:0; color:#58a6ff; }
+.livery-list ul { list-style:disc; padding-left:20px; color:#c9d1d9; }
+.livery-list li { cursor:pointer; transition:0.2s; }
+.livery-list li:hover { color:#58a6ff; transform:scale(1.05); }
+
+/* Quick Links */
+.quick-links { display:flex; flex-wrap:wrap; gap:15px; margin-top:20px; }
+.quick-link { background:#161b22; border:1px solid #30363d; border-radius:10px; padding:15px 20px; color:#c9d1d9; text-decoration:none; transition:0.3s; flex:1 1 150px; text-align:center; }
+.quick-link:hover { background:#21262d; border-color:#58a6ff; color:#58a6ff; }
+
+/* Discord Card */
+.discord-card { display:flex; align-items:center; background:#7289da; padding:15px; border-radius:10px; color:white; font-weight:bold; margin-top:15px; text-decoration:none; transition:0.3s; }
+.discord-card:hover { background:#5b6eae; transform:translateY(-3px); }
+.discord-card img { width:40px; height:40px; margin-right:10px; border-radius:50%; }
 </style>
 </head>
 <body>
 
 <div class="sidebar">
   <h2>LARP</h2>
-  <a onclick="openSection('dashboard')">Dashboard</a>
-  <a onclick="openSection('ingame')">In-Game Punishments</a>
-  <a onclick="openSection('discord')">Discord Punishments</a>
-  <a onclick="openSection('rules')">Rules</a>
+  <a onclick="openSection('home')">Home</a>
+  <a onclick="openSection('rp-rules')">Roleplay Rules</a>
+  <a onclick="openSection('discord-rules')">Discord / OOC Rules</a>
 </div>
 
 <div class="content">
 
-<!-- Dashboard -->
-<div id="dashboard" class="tab-section active">
-  <!-- Hero Banner -->
+<!-- Home / Dashboard -->
+<div id="home" class="tab-section active">
   <div class="dashboard-banner">
     <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png">
     <h1>LARP Staff Handbook</h1>
   </div>
 
-  <!-- Ownership Team -->
   <h2>Ownership Team</h2>
   <div class="team-cards">
-    <div class="team-card">
-      <img src="https://i.postimg.cc/CKCVSHLg/5cedc513b0fa0fff94a51f39195867d9.png" class="team-avatar">
-      <div class="team-name">Jax</div>
-      <div class="team-role">Second Owner</div>
-    </div>
-    <div class="team-card">
-      <img src="https://i.postimg.cc/tT2QVq69/ba73f451830cbd4a3fc20d9dfdaf68e9.png" class="team-avatar">
-      <div class="team-name">Ezy</div>
-      <div class="team-role">CF</div>
-    </div>
-    <div class="team-card">
-      <img src="https://i.postimg.cc/sDBdvRDt/61dd2657928e3e3d84ac346f116a1874.png" class="team-avatar">
-      <div class="team-name">Snakeify</div>
-      <div class="team-role">AF</div>
-    </div>
-    <div class="team-card">
-      <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" class="team-avatar">
-      <div class="team-name">NexX</div>
-      <div class="team-role">Owner</div>
-    </div>
+    <div class="team-card"><img src="https://i.postimg.cc/CKCVSHLg/5cedc513b0fa0fff94a51f39195867d9.png" class="team-avatar"><div class="team-name">Jax</div><div class="team-role">Second Owner</div></div>
+    <div class="team-card"><img src="https://i.postimg.cc/tT2QVq69/ba73f451830cbd4a3fc20d9dfdaf68e9.png" class="team-avatar"><div class="team-name">Ezy</div><div class="team-role">CF</div></div>
+    <div class="team-card"><img src="https://i.postimg.cc/sDBdvRDt/61dd2657928e3e3d84ac346f116a1874.png" class="team-avatar"><div class="team-name">Snakeify</div><div class="team-role">AF</div></div>
+    <div class="team-card"><img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" class="team-avatar"><div class="team-name">NexX</div><div class="team-role">Owner</div></div>
   </div>
 
-  <!-- Announcements -->
   <h2>Announcements</h2>
   <div class="announcement-card" onclick="toggleAnnouncement(this)">
     <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" class="announcement-img">
-    <div class="announcement-text">
-      <h3>City RP Event</h3>
-      <p class="extra" style="display:none;">Full details: The city-wide heist RP event starts at 8 PM server time.</p>
-    </div>
+    <div class="announcement-text"><h3>City RP Event</h3><p class="extra" style="display:none;">Full details: City-wide heist RP event starts at 8 PM server time.</p></div>
   </div>
-
   <div class="announcement-card" onclick="toggleAnnouncement(this)">
     <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" class="announcement-img">
-    <div class="announcement-text">
-      <h3>Server Update</h3>
-      <p class="extra" style="display:none;">Patch notes: Added new EMS vehicles, police RP jobs, bug fixes, and performance improvements.</p>
-    </div>
+    <div class="announcement-text"><h3>Server Update</h3><p class="extra" style="display:none;">Patch notes: Added new EMS vehicles, police RP jobs, bug fixes, and performance improvements.</p></div>
   </div>
 
-  <!-- Staff Stats -->
-  <h2>Staff Highlights</h2>
-  <div class="staff-stats">
-    <div class="stat-card">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Owners/Admins</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">10</div>
-      <div class="stat-label">Moderators</div>
-    </div>
-  </div>
-
-  <!-- Discord Invite -->
-  <a href="https://discord.gg/9vc6vWKH" target="_blank" class="discord-card">
-    <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Discord">
-    Join our Discord Server
-  </a>
-
-  <!-- External Links Accordion -->
-  <h2>Important Links</h2>
-  <div class="external-links">
-    <button class="accordion">Melonly Panel</button>
-    <div class="panel"><a href="https://melonly.xyz/panel/7391230818728808448" target="_blank">Access Panel (Alternative Code: TWHKSY)</a></div>
-    <button class="accordion">Staff Team Server</button>
-    <div class="panel"><a href="https://discord.gg/BMJMaMgQt" target="_blank">Join Discord</a></div>
-    <button class="accordion">Staff STS / RP GUIDE  Document</button>
-    <div class="panel"><a href="https://docs.google.com/document/d/1974LVraSeTaSTxb5XorIvx_XznczK9cR7fl9dPCRFSw" target="_blank">View Google Doc</a></div>
-  </div>
-
-  <!-- Staff Livery Cars -->
-  <div class="livery-list">
-    <h3>Staff Livery Cars</h3>
-    <ul>
-      <li onclick="showLivery('Bullhorn Prancer Pursuit 2015')">Bullhorn Prancer Pursuit 2015</li>
-      <li onclick="showLivery('Bullhorn Prancer Pursuit 2019')">Bullhorn Prancer Pursuit 2019</li>
-    </ul>
-  </div>
-
-  <!-- Quick Links -->
-  <h2>Quick Links</h2>
+  <h2>Quick Access</h2>
   <div class="quick-links">
-    <a onclick="openSection('ingame')" class="quick-link">In-Game Punishments</a>
-    <a onclick="openSection('discord')" class="quick-link">Discord Punishments</a>
-    <a onclick="openSection('rules')" class="quick-link">Rules</a>
-    <a href="#" class="quick-link">Staff Chat</a>
-    <a href="#" class="quick-link">Reports / Appeals</a>
+    <a onclick="openSection('rp-rules')" class="quick-link">Roleplay Rules</a>
+    <a onclick="openSection('discord-rules')" class="quick-link">Discord / OOC Rules</a>
+    <a href="https://discord.gg/9vc6vWKH" target="_blank" class="quick-link">Join Discord</a>
   </div>
-
 </div>
 
-<!-- In-Game Punishments -->
-<div id="ingame" class="tab-section">
-  <h2>In-Game Punishments</h2>
-  <p>Add your RDM, VDM, FRP, MG, PG, GTAD, CPT rules and punishments here.</p>
+<!-- Roleplay Rules -->
+<div id="rp-rules" class="tab-section">
+  <h2>Roleplay Rules</h2>
+  <pre style="color:#c9d1d9; font-size:14px;">
+1. RDM – Random Deathmatch
+Rule: Killing another player without IC reason or proper RP context.
+Punishments:
+1st offense: Warning + temporary IC probation
+2nd offense: Kick from server
+3rd offense / severe: 7-day ban
+
+2. VDM – Vehicle Deathmatch
+Rule: Using a vehicle to kill/injure players outside RP.
+Punishments:
+1st: Warning + RP apology
+2nd: Temporary RP ban (1–3 days)
+3rd / severe: 3–7 day server ban
+
+3. FRP – Fail Roleplay
+Rule: Acting unrealistic or breaking RP protocols.
+Punishments:
+Minor: Warning + reminder
+Moderate: 12–24 hour RP mute
+Severe: 3-day RP ban
+
+4. MG – Metagaming
+Rule: Using OOC knowledge in-character.
+Punishments:
+1st: Warning
+2nd: RP mute (1–12h)
+3rd / severe: 1–3 day RP ban
+
+5. PG – Powergaming
+Rule: Forcing actions on others without consent.
+Punishments:
+1st: Warning + IC apology
+2nd: 12–24h RP mute
+3rd: 1–3 day RP ban
+
+6. GTAD – IC Theft / Criminal Actions
+Rule: Vehicle theft, robbery, or other crimes must have RP justification.
+Punishments:
+Minor: Warning + IC fine/arrest
+Moderate: 1–2 day RP ban
+Severe: 3–7 day RP ban
+
+7. CPT – Combat / Weapon Misuse
+Rule: Weapons must be used realistically.
+Punishments:
+Minor: Warning + IC apology
+Moderate: 1-day RP ban
+Severe: 3-day RP ban + IC penalties
+
+8. Emergency Services Conduct
+Rule: EMS, Police, Dispatch must follow RP procedures.
+Punishments:
+Minor: Warning
+Moderate: Temporary RP suspension (1–12h)
+Severe: 1–3 day RP ban
+  </pre>
 </div>
 
-<!-- Discord Punishments -->
-<div id="discord" class="tab-section">
-  <h2>Discord Punishments</h2>
-  <p>Add your Discord rules & punishments here.</p>
-</div>
+<!-- Discord / OOC Rules -->
+<div id="discord-rules" class="tab-section">
+  <h2>Discord / OOC Rules</h2>
+  <pre style="color:#c9d1d9; font-size:14px;">
+1. Respect & Conduct
+Rule: No harassment, bullying, hate speech, discrimination.
+Punishments:
+Minor: Warning
+Moderate: 1-hour mute
+Severe: 24-hour mute → Kick
 
-<!-- Rules -->
-<div id="rules" class="tab-section">
-  <h2>Rules</h2>
-  <p>Add full server rules here.</p>
+2. Spam / Advertising
+Rule: No spam, mass pings, or advertising.
+Punishments:
+Minor: Warning
+Moderate: 1-hour mute / content deletion
+Severe: Kick / temporary ban
+
+3. NSFW / Inappropriate Content
+Rule: No NSFW, gore, or illegal content.
+Punishments:
+1st offense: 1 month ban
+2nd offense: Permanent ban
+
+4. Staff Impersonation / Disobedience
+Rule: Do not impersonate staff or ignore instructions.
+Punishments:
+1st: Warning
+Moderate: Kick
+Severe: Permanent ban
+
+5. Doxxing / Personal Info Sharing
+Rule: Never share personal info.
+Punishments:
+1st: Kick
+Severe: Permanent ban
+
+6. Channel Usage
+Rule: Keep messages in correct channels.
+Punishments:
+Minor: Warning
+Moderate: 30-min – 1-hour mute
+Severe: Kick
+
+7. Voice Chat Rules
+Rule: Avoid trolling, harassment, or disruptive noises.
+Punishments:
+Minor: Warning
+Moderate: VC mute / temp server mute
+Severe: Kick / VC Ban
+  </pre>
 </div>
 
 </div>
 
 <script>
 // Tabs
-function openSection(id) {
-  const tabs = document.querySelectorAll('.tab-section');
-  tabs.forEach(t => t.classList.remove('active'));
+function openSection(id){
+  document.querySelectorAll('.tab-section').forEach(t => t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-// Accordion
-const acc = document.getElementsByClassName("accordion");
-for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    const panel = this.nextElementSibling;
-    panel.style.display = (panel.style.display === "block") ? "none" : "block";
-  });
+// Announcement toggle
+function toggleAnnouncement(card){
+  const p = card.querySelector('.extra');
+  p.style.display = (p.style.display==='none')?'block':'none';
 }
 
-// Toggle announcement extra text
-function toggleAnnouncement(card) {
-  const p = card.querySelector(".extra");
-  p.style.display = (p.style.display === "none") ? "block" : "none";
-}
-
-// Show livery alert
-function showLivery(name) {
-  alert("Staff Livery Car: " + name);
-}
-
-// Initialize default tab
-document.addEventListener('DOMContentLoaded', () => {
-  openSection('dashboard');
-});
+// Initialize
+document.addEventListener('DOMContentLoaded',()=>{ openSection('home'); });
 </script>
 
 </body>
 </html>
+
