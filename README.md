@@ -1,2 +1,2 @@
-# ll283.github.io
+# Los Angeles
 Los Angeles Staff Handbook
