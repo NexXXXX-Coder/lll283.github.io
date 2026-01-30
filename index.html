@@ -38,9 +38,162 @@
     .content {
       margin-left: 240px;
       padding: 30px;
-      max-width: 900px;
+      max-width: 1000px;
     }
 
+    h1, h2 {
+      color: #58a6ff;
+    }
+
+    /* Dashboard Banner */
+    .dashboard-banner {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+
+    .dashboard-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Ownership Team */
+    .team-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .team-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 15px;
+      width: 180px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .team-card:hover {
+      background-color: #21262d;
+      border-color: #58a6ff;
+    }
+
+    .team-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border: 2px solid #58a6ff;
+    }
+
+    .team-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+
+    .team-role {
+      font-size: 14px;
+      color: #c9d1d9;
+      margin-top: 5px;
+    }
+
+    /* Announcements */
+    .announcement-card {
+      display: flex;
+      gap: 15px;
+      background-color: #161b22;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #30363d;
+      margin-bottom: 10px;
+      align-items: center;
+    }
+
+    .announcement-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .announcement-text h3 {
+      margin: 0 0 5px 0;
+      color: #58a6ff;
+    }
+
+    .announcement-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #c9d1d9;
+    }
+
+    /* Staff Highlights */
+    .staff-stats {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .stat-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 15px;
+      flex: 1;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .stat-card:hover {
+      background-color: #21262d;
+      border-color: #58a6ff;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #58a6ff;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: #c9d1d9;
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .quick-link {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 15px 20px;
+      color: #c9d1d9;
+      text-decoration: none;
+      transition: 0.2s;
+      flex: 1 1 150px;
+      text-align: center;
+    }
+
+    .quick-link:hover {
+      background-color: #21262d;
+      border-color: #58a6ff;
+      color: #58a6ff;
+    }
+
+    /* Punishments and Rules */
     .tab-section {
       display: none;
     }
@@ -83,24 +236,6 @@
       border-radius: 8px;
       border: 1px solid #30363d;
     }
-
-    .rules-section ul {
-      padding-left: 20px;
-    }
-
-    .rules-section li {
-      margin-bottom: 10px;
-    }
-
-    .punishment-title {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .punishment-sub {
-      margin-left: 20px;
-      margin-bottom: 5px;
-    }
   </style>
 </head>
 <body>
@@ -117,144 +252,85 @@
 
   <!-- Dashboard -->
   <div id="dashboard" class="tab-section active-section">
+    <div class="dashboard-banner">
+      <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Dashboard Banner">
+    </div>
+
     <h1>LARP STAFF HANDBOOK</h1>
-    <p>Welcome to the official LARP Staff Handbook. Use the sidebar to navigate between sections.</p>
-  </div>
+    <p>Welcome to the official LARP Staff Handbook. Navigate through the sidebar to access all sections.</p>
 
-  <!-- In-Game Punishments -->
-  <div id="ingame" class="tab-section">
-    <h1>In-Game Punishments</h1>
-    <div class="tabs">
-      <div class="tab active" data-tab="minor-ingame">Minor</div>
-      <div class="tab" data-tab="major-ingame">Major</div>
-      <div class="tab" data-tab="severe-ingame">Severe</div>
+    <!-- Ownership Team -->
+    <h2>Ownership Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="NexX Avatar" class="team-avatar">
+        <div class="team-name">NexX</div>
+        <div class="team-role">Owner</div>
+      </div>
+      <div class="team-card">
+        <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Jax Avatar" class="team-avatar">
+        <div class="team-name">Jax</div>
+        <div class="team-role">Second Owner</div>
+      </div>
+      <div class="team-card">
+        <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Snakeify Avatar" class="team-avatar">
+        <div class="team-name">Snakeify</div>
+        <div class="team-role">AF</div>
+      </div>
+      <div class="team-card">
+        <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Ezy Avatar" class="team-avatar">
+        <div class="team-name">Ezy</div>
+        <div class="team-role">CF</div>
+      </div>
     </div>
-    <ul class="punishments-list" id="ingameList"></ul>
-  </div>
 
-  <!-- Discord Punishments -->
-  <div id="discord" class="tab-section">
-    <h1>Discord Punishments</h1>
-    <div class="tabs">
-      <div class="tab active" data-tab="minor-discord">Minor</div>
-      <div class="tab" data-tab="major-discord">Major</div>
-      <div class="tab" data-tab="severe-discord">Severe</div>
+    <!-- Announcements -->
+    <h2>Announcements</h2>
+    <div class="announcement-card">
+      <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Event" class="announcement-img">
+      <div class="announcement-text">
+        <h3>City RP Event</h3>
+        <p>Join us this Saturday for a city-wide heist RP event! Don’t miss it.</p>
+      </div>
     </div>
-    <ul class="punishments-list" id="discordList"></ul>
-  </div>
 
-  <!-- Rules -->
-  <div id="rules" class="tab-section rules-section">
-    <h1>Rules</h1>
-    <ul>
-      <li><strong>Discord Rules</strong> (Roleplay & Server Conduct)
-        <ul>
-          <li>1. Only roleplay in designated channels.</li>
-          <li>2. Stay in-character; no breaking immersion unnecessarily.</li>
-          <li>3. No powergaming or metagaming. <br>
-            Powergaming: Forcing actions without consent. <br>
-            Metagaming: Using OOC info IC.
-          </li>
-          <li>4. Respect staff hierarchy.</li>
-          <li>5. No spamming, NSFW content, or excessive pings.</li>
-          <li>6. Follow voice chat guidelines and push-to-talk if recommended.</li>
-          <li>7. Follow staff instructions, appeal privately.</li>
-          <li>8. Do not share personal info, doxx, or threaten others.</li>
-          <li>9. Participate in events properly, no disruption.</li>
-          <li>10. No cheating, exploiting, or glitches.</li>
-          <li>11. Rule violations may result in warnings, mutes, kicks, or bans.</li>
-          <li>12. Questions? Ask staff in #questions channel.</li>
-        </ul>
-      </li>
-    </ul>
+    <div class="announcement-card">
+      <img src="https://i.postimg.cc/7LjDKQRP/2D67F56A-93DD-461D-A900-40FC8FF70930.png" alt="Event" class="announcement-img">
+      <div class="announcement-text">
+        <h3>Server Update</h3>
+        <p>New vehicles and EMS roles added. Check the full patch notes in #announcements.</p>
+      </div>
+    </div>
+
+    <!-- Staff Highlights -->
+    <h2>Staff Highlights</h2>
+    <div class="staff-stats">
+      <div class="stat-card">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Owners/Admins</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10</div>
+        <div class="stat-label">Moderators</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">124</div>
+        <div class="stat-label">Players Online</div>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <h2>Quick Links</h2>
+    <div class="quick-links">
+      <a href="#" class="quick-link">In-Game Punishments</a>
+      <a href="#" class="quick-link">Discord Punishments</a>
+      <a href="#" class="quick-link">Rules</a>
+      <a href="#" class="quick-link">Staff Chat</a>
+      <a href="#" class="quick-link">Reports / Appeals</a>
+    </div>
+
   </div>
 
 </div>
-
-<script>
-  function openSection(id) {
-    document.querySelectorAll('.tab-section').forEach(sec => sec.classList.remove('active-section'));
-    document.getElementById(id).classList.add('active-section');
-
-    if (id === 'ingame') showPunishments('minor-ingame');
-    if (id === 'discord') showPunishments('minor-discord');
-  }
-
-  const punishments = {
-    // In-game Roleplay Rules
-    "minor-ingame": [
-      "⚔️ RDM – 1st offense: ⚠️ Warning – Staff explanation, IC apology required",
-      "🚗 VDM – 1st offense: ⚠️ Warning – Staff explanation + IC apology",
-      "📉 FRP Minor: ⚠️ Warning + IC guidance",
-      "🕵️ MG 1st offense: ⚠️ Warning – Remove unfair advantage",
-      "💪 PG 1st offense: ⚠️ Warning + IC apology",
-      "💰 GTAD Minor: ⚠️ Warning + IC fine or arrest",
-      "🔫 CPT Minor: ⚠️ Warning + IC apology / training",
-      "🚑/🚓 Emergency Services Minor: ⚠️ Warning"
-    ],
-    "major-ingame": [
-      "⚔️ RDM – 2nd offense: 🛑 Kick – Removed from server for review",
-      "🚗 VDM – 2nd offense: 🛑 Kick – Temporary removal",
-      "📉 FRP Moderate: 12–24 hour RP mute",
-      "🕵️ MG 2nd offense: 1–12 hour RP mute",
-      "💪 PG 2nd offense: 12–24 hour RP mute",
-      "💰 GTAD Moderate: Temporary RP ban (1–2 days)",
-      "🔫 CPT Moderate: RP mute or 1-day RP suspension",
-      "🚑/🚓 Emergency Services Moderate: Temporary RP suspension (1–12 hours)"
-    ],
-    "severe-ingame": [
-      "⚔️ RDM – 3rd offense / severe: ⛔ 7-day ban or longer",
-      "🚗 VDM – 3rd offense / severe: ⛔ 7-day or permanent ban",
-      "📉 FRP Severe / repeated: 1–3 day RP ban",
-      "🕵️ MG 3rd offense / severe: 1–3 day RP ban",
-      "💪 PG 3rd offense / repeated: 1–3 day RP ban",
-      "💰 GTAD Severe / repeated: 3–7 day RP ban",
-      "🔫 CPT Severe / repeated: 3-day RP ban + IC penalties",
-      "🚑/🚓 Emergency Services Severe / repeated: 1–3 day RP ban"
-    ],
-
-    // Discord
-    "minor-discord": [
-      "Spamming - Warning",
-      "Off-topic messages - Warning",
-      "Mild language - Warning"
-    ],
-    "major-discord": [
-      "Harassment - Kick",
-      "Rule violation - Temp mute (2 weeks)",
-      "Spoilers - Temp ban (2 weeks)"
-    ],
-    "severe-discord": [
-      "Threats or harassment - Permanent ban",
-      "Hate speech - Permanent ban",
-      "Sharing personal info - Permanent ban"
-    ]
-  };
-
-  const tabs = document.querySelectorAll('.tab');
-
-  function showPunishments(category) {
-    const listId = category.includes('ingame') ? 'ingameList' : 'discordList';
-    const list = document.getElementById(listId);
-    list.innerHTML = '';
-    punishments[category].forEach(p => {
-      const li = document.createElement('li');
-      li.textContent = p;
-      list.appendChild(li);
-    });
-
-    tabs.forEach(t => {
-      t.classList.toggle('active', t.dataset.tab === category);
-    });
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => showPunishments(tab.dataset.tab));
-  });
-
-  // Initialize first visible tab
-  showPunishments('minor-ingame');
-</script>
-
 </body>
 </html>
